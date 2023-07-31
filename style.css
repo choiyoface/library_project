@@ -1,3 +1,31 @@
+:root{
+    --head-background-color:#bec9a8;
+    --head-text-color:black;
+    --main-background-color:#f2ddce;
+    --main-card-color:#d2c0b4;
+    --form-background-color:white;
+}
 body{
-    color:yellow;
+    display:flex;
+    flex-direction: column;
+    margin: 0px;    
+    padding: 0px;
+}
+.header{
+    background-color: var(--head-background-color);
+    color:var(--head-text-color);
+    font-size: 30px;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    background-color: var(--main-background-color);
+}
+form{
+    background-color: var(--form-background-color);
+    display: flex;
+    flex-direction: column;
+}
+.bookOne{
+    background-color: var(--main-card-color);
 }
