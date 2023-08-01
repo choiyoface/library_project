@@ -8,24 +8,57 @@
 body{
     display:flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: 0px;    
     padding: 0px;
+    font-family:"Playfair Display",sans-serif ;
+    background-color: var(--main-background-color);
 }
 .header{
     background-color: var(--head-background-color);
     color:var(--head-text-color);
-    font-size: 30px;
+    font-size: 50px;
+    height: 100px;
+    font-family: "Borel",sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer{
+    background-color: var(--head-background-color);
+    color:var(--head-text-color);
+    height: 30px;
+   
 }
 .container{
     display: flex;
-    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100vh - 130px);
     background-color: var(--main-background-color);
+
 }
-form{
-    background-color: var(--form-background-color);
-    display: flex;
-    flex-direction: column;
+/*.bookDiv{
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
 }
 .bookOne{
     background-color: var(--main-card-color);
+    padding: 10px;
+
+}*/
+
+.formDiv{
+    background-color: white;
+    height: 500px; 
+    padding: 10px;
+    border-radius: 10px;
 }
+form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+}
+
