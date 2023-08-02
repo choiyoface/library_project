@@ -38,16 +38,19 @@ body{
     background-color: var(--main-background-color);
 
 }
-/*.bookDiv{
+.bookDiv{
     display: grid;
-    grid-template-columns: 1fr, 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    column-gap: 15px;
 }
-.bookOne{
+.book-card{
+    display: flex;
+    flex-direction: column;
     background-color: var(--main-card-color);
     padding: 10px;
 
-}*/
+}
 
 .formDiv{
     background-color: white;

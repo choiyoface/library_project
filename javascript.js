@@ -1,35 +1,53 @@
 let myLibrary = [];
 
-function Book (title, author, genre, status){
+function Book (title, author, genre, read ){
     this.title = title
     this.author = author
     this.genre = genre
-    this.status = status
+    this.read = read
+  
+}
+Book.prototype.toggleRead= function(){
+    this.read = !this.read
+}
+function toggleRead(index){
+    myLibrary[index].toggleRead();
+    render();
 }
 
 function render() {
     let libraryEl = document.querySelector("#bookDiv");
-    libraryEl.innerHTML = "";
+    libraryEl.innerHTML = " ";
     for (let i = 0; i < myLibrary.length; i++) {
       let book = myLibrary[i]; 
   
       let bookEl = document.createElement("div");
+      bookEl.setAttribute("class", "book-card");
       bookEl.innerHTML = `
-        <div class="bookOneTitle">${book.title}</div>
-        <div class="bookOneAuthor">${book.author}</div>
-        <div class="bookOneGenre">${book.genre}</div>
-        <div class="bookOneStatus">${book.status}</div>
-      `;
+        <div class="card-header">
+         <h3 class="title">${book.title}</h3>
+         <h5 class="author">by ${book.author}</h5>
+        </div>
+        <div class="card-body">
+        <p>${book.genre}</p>
+        <p class="read-status">${book.read ? "Read" : "Not Read Yet"}<p/>
+        <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
+        <button class="toggle-read-btn" onclick="toggleRead(${i})">Change Read Status</button>
+        `; 
       libraryEl.appendChild(bookEl);
     }
   }
-  
+  function removeBook(index){
+    myLibrary.splice(index, 1);
+    render();
+  }
+
   function addBookToLibrary() {
     let title = document.querySelector("#bookTitle").value;
-    let author = document.querySelector("#bookAuthor").value;
-    let genre = document.querySelector("#bookGenre").value;
-    let status = document.querySelector("#status").value;
-    let newbook = new Book(title, author, genre, status);
+    let author = document.getElementById("bookAuthor").value;
+    let genre = document.getElementById("bookGenre").value;
+    let read = document.getElementById("read").checked;
+    let newbook = new Book(title, author, genre, read);
     myLibrary.push(newbook);
     render();
   }
@@ -38,22 +56,4 @@ function render() {
     event.preventDefault();
     addBookToLibrary();
   });
-  
-
-
-function addBookToLibrary(){
-    let title = document.querySelector("#bookTitle").value
-    let author = document.querySelector("#bookAuthor").value
-    let genre = document.querySelector("#bookGenre").value
-    let status = document.querySelector("#status").value
-    let newbook = new Book(title, author, genre, status)
-    //create a card//
-    myLibrary.push(newbook);
-    render();
-}
-
-document.querySelector("#newbook-form").addEventListener("submit", function(event){
-    event.preventDefault();
-    addBookToLibrary();
-})
-
+ 
