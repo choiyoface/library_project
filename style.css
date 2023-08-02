@@ -28,6 +28,9 @@ body{
     background-color: var(--head-background-color);
     color:var(--head-text-color);
     height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
    
 }
 .container{
@@ -42,7 +45,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
-    column-gap: 15px;
+    gap: 15px;
 }
 .book-card{
     display: flex;
@@ -63,5 +66,18 @@ form{
     flex-direction: column;
     gap:10px;
 
+}
+.remove-btn,
+.toggle-read-btn{
+    background-color:#9e897b ;
+    border: 2px solid #9e897b;
+    border-radius: 5px;
+
+}
+.new-book-btn,
+#submit{
+    border-radius: 5px;
+    background-color:#97a874 ; 
+    border: 2px solid #97a874;
 }
 
