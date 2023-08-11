@@ -1,12 +1,26 @@
 let myLibrary = [];
 
-function Book (title, author, genre, read ){
+//change to class
+/*function Book (title, author, genre, read ){
     this.title = title
     this.author = author
     this.genre = genre
     this.read = read
   
+}*/
+
+class Book  {
+  
+  constructor (title, author, genre, read){
+  
+    this.title = title
+    this.author = author
+    this.genre = genre
+    this.read = read
 }
+
+}
+//to toggle read 
 Book.prototype.toggleRead= function(){
     this.read = !this.read
 }
@@ -14,7 +28,7 @@ function toggleRead(index){
     myLibrary[index].toggleRead();
     render();
 }
-
+//making a book card
 function render() {
     let libraryEl = document.querySelector("#bookDiv");
     libraryEl.innerHTML = " ";
@@ -37,11 +51,12 @@ function render() {
       libraryEl.appendChild(bookEl);
     }
   }
+  //for remove button
   function removeBook(index){
     myLibrary.splice(index, 1);
     render();
   }
-
+  //getting values from the form
   function addBookToLibrary() {
     let title = document.querySelector("#bookTitle").value;
     let author = document.getElementById("bookAuthor").value;
